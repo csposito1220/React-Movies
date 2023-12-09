@@ -5,16 +5,12 @@ import { movies } from "../../data";
 
 export default function MovieDetailPage() {
   let { movieName } = useParams();
-  const [movie, setMovie] = useState({});
-  useEffect(() => {
-    let selectedMovie = movies.find((m) => m.title == movieName);
-    setMovie(selectedMovie);
-  }, [movies, movieName]);
+  let selectedMovie = movies.find((m) => m.title == movieName);
 
   return (
     <div>
-      <MovieCard movie={movie} />
-      <h4>Cast: {movie.cast?.join(", ")}</h4>
+      <MovieCard movie={selectedMovie} />
+      <h4>Cast: {selectedMovie.cast.join(", ")}</h4>
     </div>
   );
 }
