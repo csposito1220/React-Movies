@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
+import { movies } from "../../data";
 import "./App.css";
 import LoginPage from "../LoginPage/LoginPage";
 import MoviesListPage from "../MoviesListPage/MoviesListPage";
@@ -16,8 +17,11 @@ export default function App() {
         <>
           <NavBar />
           <Routes>
-            <Route path="/" element={<MoviesListPage />} />
-            <Route path="/movies/:movieName" element={<MovieDetailPage />} />
+            <Route path="/" element={<MoviesListPage movies={movies} />} />
+            <Route
+              path="/movies/:movieName"
+              element={<MovieDetailPage movies={movies} />}
+            />
             <Route path="/actors" element={<ActorListPage />} />
           </Routes>
         </>
